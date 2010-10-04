@@ -80,11 +80,58 @@ Documentation generated using http://submain.com/products/ghostdoc.aspx GhostDoc
 </p><h2>License</h2>
 <p>Since #ziplib is using a modified version of the GPL v2 I'm licensing under the LGPL which should be compatiable.</p>
 <h2>Authors</h2>
-<p>Wes Brown (wes@planetarydb.com)<br/><br/>      </p>
+<p>Wes Brown (wes@planetarydb.com)
+<br/>
+<br/>      </p>
 <h2>Contact</h2>
-<p>Wes Brown (wes@planetarydb.com)<br/>      </p>
+<p>Wes Brown (wes@planetarydb.com)
+<br/>      </p>
 
+Stored Procedure Usage
+StorePassPhrase @Password nvarchar(255)
+Password limited to 24 characters hashed and stored in the database to encrypt and decrypt files.
 
+StoreFile @FileLocation ,@ReturnFileId OUT
+Store file unencrypted and uncompressed into the database. @ReturnFileId is the id of the file inserted.
+
+StoreFileEncrypted @FileLocation ,@returnFileId OUT
+Store file encrypted and uncompressed into the database. @ReturnFileId is the id of the file inserted, uses the Passphrase stored in the database.
+
+StoreFileCompressed @FileLocation ,@CompressionLevel,@returnFileId OUT
+Store file unencrypted and compressed into the database. @CompressionLevel from 1-9 are valid. @ReturnFileId is the id of the file inserted
+
+StoreFileEncryptedCompressed @FileLocation,@CompressionLevel,@returnFileId OUT
+Store file encrypted and compressed into the database. @CompressionLevel from 1-9 are valid. @ReturnFileId is the id of the file inserted, uses the Passphrase stored in the database.
+
+InsertTag @returnfileid,@TagList
+Insert and associate a list of tags to a specific file.
+
+Retrievefiledetails @FileId
+Get details of a file stored in the database if @FileId returns all files.
+
+ExtractFileToDisk @FileId ,@FileLocation
+Extract file to disk no matter the storage method output to the @FileLocation
+
+ExtractFileToDiskEncrypted @FileId ,@FileLocation
+Extract file to disk raw from the database. Will only work on encrypted uncompressed files.
+
+ExtractFileToDiskCompressed @retFileId ,@FileLocation
+Extract file to disk raw from the database. Will only work on unencrypted compressed files.
+
+ExtractFileToDiskEncryptedCompressed @retFileId, ,@FileLocation
+Extract file to disk raw from the database. Will only work on encrypted compressed files.
+
+ExtractFileToRecord @retFileId
+Extract file to record set no matter the storage method.
+
+ExtractFileToRecordEncrypted @retFileId
+Extract file to record set raw from the database. Will only work on encrypted uncompressed files.
+
+ExtractFileToRecordCompressed @retFileId
+Extract file to record set raw from the database. Will only work on unencrypted compressed files.
+
+ExtractFileToRecordEncryptedCompressed @retFileId
+Extract file to record set raw from the database. Will only work on encrypted compressed files.
     <h2>Download</h2>
     <p>
       You can download this project in either
