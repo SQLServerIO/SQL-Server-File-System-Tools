@@ -1,0 +1,2 @@
+DEL "C:\projects\source\OpenSource\SQLServerFileSystemTools\FileSystemTools\RELEASE\*" /Q
+"C:\Program Files\7-Zip\7z" u -tzip "C:\projects\source\OpenSource\SQLServerFileSystemTools\FileSystemTools\RELEASE\SQLFileTools.zip" @"C:\projects\source\OpenSource\SQLServerFileSystemTools\FileSystemTools\files.txt"
