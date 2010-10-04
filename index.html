@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>SQLServerIO/SQL-Server-File-System-Tools @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+  		background-color: #4b6681;
+		  font-family: "Helvetica,Arial,FreeSans";
+  		color: #ffffff;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #b4997e; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #b4997e; }
+    h3 { text-align: center; color: #b4997e; }
+    a { color: #b4997e; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
+	
+</head>
+
+<body>
+  <a href="http://github.com/SQLServerIO/SQL-Server-File-System-Tools"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/SQLServerIO/SQL-Server-File-System-Tools/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/SQLServerIO/SQL-Server-File-System-Tools/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/SQLServerIO/SQL-Server-File-System-Tools">SQL-Server-File-System-Tools</a>
+      <span class="small">by <a href="http://github.com/SQLServerIO">SQLServerIO</a></span></h1>
+
+    <div class="description">
+      A set of SQL CLR tools used to manage files in and out of a SQL Database includes compressing files.
+    </div>
+
+    <p>SQL Server File System Tools
+SQL Server File System Tools is a SQL Server CLR dll containing several useful stored procedures for getting files into and out of SQL Server databases.
+This includes:
+
+    * Insert file into the database
+          o with encryption
+          o with compression(zip)
+          o or both!
+    * Select file from database output to disk
+          o decompressed and unencrypted to file system UNC or hard path
+          o compressed to UNC or hard path with .zip extention (fully compatiable with windows explorer)
+    * Select file from database output to recordset
+          o decompressed and unencrypted to binary record
+          o compressed to binary record (fully compatiable with windows explorer)
+
+
+I am using a slimmed down version of #ziplib and will be modifiying it even ferther to meet my needs.
+i'm also planning using a faster algorithim if you don't need to save to file system in a zip compatiable format.
+
+since this requires UNSAFE it also requries you to ALTER DATABASE SQLFileStore SET trustworthy ON.
+
+The binary download has the dll plus the sql script to create the objects and load the DLL. Currently, it takes loading it in UNSAFE mode but I will be fixing up the code so it will only require EXTERNAL_ACCESS in a later release.
+
+About the Documentation
+Documentation generated using http://submain.com/products/ghostdoc.aspx GhostDoc and http://www.stack.nl/~dimitri/doxygen/ Doxygen.
+</p><h2>License</h2>
+<p>Since #ziplib is using a modified version of the GPL v2 I'm licensing under the LGPL which should be compatiable.</p>
+<h2>Authors</h2>
+<p>Wes Brown (wes@planetarydb.com)<br/><br/>      </p>
+<h2>Contact</h2>
+<p>Wes Brown (wes@planetarydb.com)<br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/SQLServerIO/SQL-Server-File-System-Tools/zipball/master">zip</a> or
+      <a href="http://github.com/SQLServerIO/SQL-Server-File-System-Tools/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/SQLServerIO/SQL-Server-File-System-Tools</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/SQLServerIO/SQL-Server-File-System-Tools">SQLServerIO/SQL-Server-File-System-Tools</a>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
